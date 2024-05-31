@@ -1,0 +1,47 @@
+// CronTime reference
+
+Minutes (0-59): This field indicates the minutes in which the task will be executed. 
+                You can specify a single value (for example, 5 to run at 5 minutes of each hour), 
+                a comma-separated list of values ​​(for example, 5,15,30 to run at 5, 15, and 30 minutes of each hour ), 
+                a range of values ​​(for example, 10-20 to run every minute from minutes 10 to 20), 
+                or an asterisk (*) to indicate that the task will run every minute.
+
+Hours (0-23): This field indicates the hours in which the task will be executed. 
+                As with minutes, you can specify single values, lists of values, ranges of values, 
+                or an asterisk (*) to run on each hour.
+
+Days of the month (1-31): This field indicates the days of the month in which the task will be executed. 
+                You can use the same types of values ​​as minutes and hours, 
+                or you can use special values ​​like L for the last day of the month.
+
+Months (1-12 or abbreviated names): This field indicates the months in which the task will be executed. 
+                You can use numbers from 1 to 12 or abbreviated names of the months in English 
+                (for example, Jan for January, Feb for February, etc.). 
+                You can also use an asterisk (*) to run on each month.
+
+Days of the week (0-7 or abbreviated names): This field indicates the days of the week on which the task will be executed. 
+                The numbers 0 to 7 represent the days of the week, where 0 and 7 are equivalent to Sunday. 
+                You can also use abbreviated names of the days of the week in English (for example, Mon for Monday, Tue for Tuesday, etc.). 
+                As with the other fields, you can use an asterisk (*) to run on each day of the week.
+
+// Execution every 3 minutes
+//      (*/3): The slash (/) is used to specify regular intervals. 
+{
+  "id": "CLEAN_LOGS",
+  "cronTime": "*/3 * * * *",  
+  "params": {}
+}
+
+// Run from Monday to Friday at 2:00 p.m.
+{
+  "id": "BACKUP_FILES",
+  "cronTime": "0 14 * * 1-5", 
+  "params": {}
+}
+
+// Run on the last day of each month at 4:30 p.m.
+{
+  "id": "REPROCESS_TRANSACTIONS",
+  "cronTime": "30 16 L * *", 
+  "params": {}
+}
