@@ -1,0 +1,5 @@
+docker run -d -p 27017:27017 --name mongodb mongo:latest
+docker run -d --name mongo-express -p 8082:8081 --link mongodb:mongo mongo-express:latest
+
+http://localhost:8082
+user: admin, password: pass

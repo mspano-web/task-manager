@@ -103,7 +103,7 @@ export class TasksService implements OnModuleInit {
       return {
         id: taskId,
         // Obtained if there is a new invocation scheduled for this task
-        nextInvocation: job.nextInvocation()?.toISOString() ?? 'N/A',
+        nextInvocation: job.nextInvocation()?.toLocaleString() ?? 'N/A',
       };
     });
     return runningTasks;
